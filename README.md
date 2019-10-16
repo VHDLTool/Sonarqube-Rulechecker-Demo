@@ -7,15 +7,7 @@ For additionnal information see the associted [wiki for the toolchain](https://g
 * [sonar-coverage-ghdl](https://github.com/VHDLTool/sonar-coverage-ghdl) and [sonar-coverage-modelsim](https://github.com/VHDLTool/sonar-coverage-modelsim) are additionnal sonarqube plugin included in the demo. They can import GHDL-GCC coverage and modelsim coverage reports inside Sonarqube. 
 * [Plasma](https://opencores.org/projects/plasma)VHDL example design. Plasma was the test project for Zamiacad.It is included as example for this demo.
 
-This repository holds example design for:
-* Zamiacad Rulechecker included inside a portable eclipse
-* RC scanner which import VHDL project into Sonarqube
-* Sonarqube for managing issues logged by Zamiacad rulechecker
-* VHDL design example Plasma
+The demo might not be up to date with regard to the origianl repositories. Please consult the dedicated release page in Github for the latest version.
 
-Please refers to :
-* https://github.com/VHDLTool/VHDL-RC : for latest RC-scanner
-* https://www.sonarqube.org/downloads/ : for the latest LTS sonarqube version
-* https://github.com/VHDLTool/Zamiacad-Rulechecker : for the latest Zamiacad-Rulechecker plugin
-* https://github.com/VHDLTool/VHDL-RC/wiki/How-rc-scanner-is-built#2-assemble-a-portable-eclipse : for how to create a portable eclipse for windows
-* https://github.com/VHDLTool/VHDL-RC/wiki/How-rc-scanner-is-built#2-assemble-eclipse : for how to create a portable eclipse for linux
+
+
