@@ -1,3 +1,4 @@
+# Source description
 This repository holds a working example for several repositories hosted by VHDLTool.
 It use features from:
 * [VHDL_handbook_CNE](https://github.com/VHDLTool/VHDL_Handbook_CNE). This repository gathers a collections of VHDL rules formatted has a XML file plus VHDL examples. The CNES handbook is a derivate of [VHDL_handbook_STD](https://github.com/VHDLTool/VHDL_Handbook_STD) including more formatting rules. These handbooks can be freely edited and converted to PDF through the [dedicated toolchain](https://github.com/VHDLTool/VHDL_Handbook_Toolchain).   
@@ -9,5 +10,30 @@ For additionnal information see the associted [wiki for the toolchain](https://g
 
 The demo might not be up to date with regard to the origianl repositories. Please consult the dedicated release page in Github for the latest version.
 
+# Demo description
+The demo includes every projects already configured and ready to work.
+## Utilization
+1. download the demo Zip in [the release page](https://github.com/VHDLTool/Sonarqube-Rulechecker-Demo/releases) and unzip it.
+2. You can execute the script in order (1 to 5) on windows and (a to e) on linux:
+   1. Launch sonarqube web server. The sonarqube included in the demo is the  orginal Sonarqube with additionnal features:
+      * Add sonar-VHDLRC,sonar-coverage-ghdl and sonar-coverage-modelsim inside the <extensions\plugins\> folder
+      * Configure in sonarqube a new quality profile called VHDL-RC-Example based on builtin VHDL-RC. This profile is made by default for new VHDL project. The only difference with the builtin profile is that every rules are enables (by default all rules are disables leading to no reporting).
+      * Add a java folder with inlcude openjdk 12 (this avoid JRE version problems for the demo)
+      * Configure Sonarqube to use embedded Openjdk (this is done by editing <\sonarqube-7.9.1\conf\wrapper.conf> file)
+      The server can be launch manually by selecting the right executable in <\sonarqube-7.9.1\bin> folder
+   2. Open Sonarqube. The web server can be accessed from any internet browser at the address *http://127.0.0.1:9000*. 
+   4. The login and password are *admin/admin*.
+   3. Import plasma example. This step moves the terminal to the plasma folder and calls the sonnarqube-RC-scanner. This scanner is a modified version of Sonarqube scanner made to include Zamiacad inside a portable eclipse. The scan launch Zamiacad-RC in the portable Eclipse and upload everything inside sonarqube server.
+   4. The importation can now be seen inside Sonarqube webpage.
+## Test with a custom project
+Do try an analysis with a custom project do as following:
+* Create a new directory on you computer
+* Put your VHDL files inside this folder
+* create a file called *sonar-project.properties*. You can use plasma sonar-project.properties file as example.  
+  You  have to change at least *sonar.projectKey* to be unique inside sonarqube and *sonar.sources* to include the relative path to your VHDL files.
+* launch, from the location of your *sonar-project.properties* file (which if the root of your project) the rc-scanner located in *rc-scanner-4.0-3-windows\bin\rc-scanner.bat* (or *rc-scanner-4.0.0.1744-1-linux\bin\rc-scanner*)
+* project should now be visible inside sonarqube    
 
+You can add scm.git or scm.svm plugins inside sonarqube to get benefit or the automatic version management inside Sonarqube. With this feature each time you commit new code and scan it , you will see the delta evolution of your project. (This could be done manually by changing *sonar.projectVersion* property in *sonar-project.properties* file).   
 
+If you want to include Modelsim code coverage you can include a file called *report.txt.xml* from Modelsim *Tools->Coverage Report->Text "XML format"*. This can be changed in Sonarqube Code Coverage configuration.
