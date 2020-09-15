@@ -17,14 +17,22 @@ The demo includes every projects already configured and ready to work.
 2. You can execute the script in order (1 to 5) on windows and (a to e) on linux:
    1. Launch sonarqube web server. The sonarqube included in the demo is the  orginal Sonarqube with additionnal features:
       * Add sonar-VHDLRC,sonar-coverage-ghdl and sonar-coverage-modelsim inside the <extensions\plugins\> folder
-      * Configure in sonarqube a new quality profile called VHDL-RC-Example based on builtin VHDL-RC. This profile is made by default for new VHDL project. The only difference with the builtin profile is that every rules are enables (by default all rules are disables leading to no reporting).
+      * Add sonar-fpga_metrics plugin inside the <extensions\plugins\> folder
+      * Configure in sonarqube with a quality gate example
       * Add a java folder with inlcude openjdk 12 (this avoid JRE version problems for the demo)
       * Configure Sonarqube to use embedded Openjdk (this is done by editing <\sonarqube-7.9.1\conf\wrapper.conf> file)
       The server can be launch manually by selecting the right executable in <\sonarqube-7.9.1\bin> folder
    2. Open Sonarqube. The web server can be accessed from any internet browser at the address *http://127.0.0.1:9000*. 
-   4. The login and password are *admin/admin*.
-   3. Import plasma example. This step moves the terminal to the plasma folder and calls the sonnarqube-RC-scanner. This scanner is a modified version of Sonarqube scanner made to include Zamiacad inside a portable eclipse. The scan launch Zamiacad-RC in the portable Eclipse and upload everything inside sonarqube server.
-   4. The importation can now be seen inside Sonarqube webpage.
+   3. The login and password are *admin/admin*.
+   4. Do importation of 2 example projects.
+      1. Import plasma example Version 1.   
+      This step moves the terminal to the plasma folder and calls the sonnarqube-RC-scanner.   
+      This scanner is a modified version of Sonarqube scanner made to include Zamiacad inside a portable eclipse.    
+      The scan launch Zamiacad-RC in the portable Eclipse and upload everything inside sonarqube server.   
+      You can then go to sonarqube webpage to see the importation of the design
+      2. Import plasma example Version 2.   
+      This is an updated version of the project to display evolution in Sonarqube.
+   5. The importation can now be seen inside Sonarqube webpage.
 ## Test with a custom project
 Do try an analysis with a custom project do as following:
 * Create a new directory on you computer
